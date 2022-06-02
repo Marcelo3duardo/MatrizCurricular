@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.topo{
+    display:flex;
+    width: 100%;
+    background-color: #615959;
+    justify-content: space-between;
+    padding:20px;
+    .buttonsLogin{
+        display: flex;
+        width:230px;
+        justify-content: space-between;
+    }
+}
+
+.body{
+    background-color: #909FD4;
+    height: 100vh;
+    width: 100%;
+}

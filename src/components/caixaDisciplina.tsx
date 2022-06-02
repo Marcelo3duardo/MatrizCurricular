@@ -1,4 +1,6 @@
 import { useState } from "react";
+import React from "react"
+import '../styles/caixa.scss'
 
 type CaixaDaDisciplinaProps = {
     nome?: string;
@@ -7,15 +9,16 @@ type CaixaDaDisciplinaProps = {
     preRequisitos?: Array<number>;
 }
 
-export function CaixaDaDisciplina(props: CaixaDaDisciplinaProps) {
+export function CaixaDaDisciplina(props: CaixaDaDisciplinaProps): JSX.Element {
+    const { nome, numero, cargaHoraria, preRequisitos } = props;
     const [nColor, setNColor] = useState('cinza');
 
     function mudarCor() {
-        if (nColor == 'cinza'){
+        if (nColor == 'cinza') {
             setNColor('amarelo');
-        }else if (nColor == 'amarelo'){//pre-requisitos true
+        } else if (nColor == 'amarelo') {//pre-requisitos true
             setNColor('verde');
-        }else if (nColor == 'verde'){// ele mesmo true
+        } else if (nColor == 'verde') {// ele mesmo true
             setNColor('cinza');
         }
     }
@@ -25,11 +28,14 @@ export function CaixaDaDisciplina(props: CaixaDaDisciplinaProps) {
     //cinza   #B0BEC5
 
     return (
-        <div>
-            <p>{props.numero}</p>
-            <p>{props.nome}</p>
-            <p>{props.cargaHoraria}</p>
-            <p>{props.preRequisitos}</p>
+        <div className="box-disc">
+            <p>{numero}</p>
+
+            <h3>{nome}</h3>
+            <div>
+                <p>{cargaHoraria}</p>
+                {preRequisitos?.toString()} 
+            </div>
         </div>
     )
 }
